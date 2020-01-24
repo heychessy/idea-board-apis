@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "APIs for CRUD operations in Idea Board App",
+    "version": "1.0.0",
+    "title": "Idea Board",
+    "termsOfService": "http://localhost:8001/ideas",
+    "contact": {
+      "email": "baweja.chessy@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:8001",
+  "basePath": "/ideas",
+  "tags": [
+    {
+      "name": "ideas",
+      "description": "Everything about your ideas"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/create": {
+      "post": {
+        "tags": ["ideas"],
+        "summary": "Add a new idea",
+        "description": "post request to create a new idea.",
+        "operationId": "createIdea",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Idea",
+            "description": "Idea object that needs to be created",
+            "schema": {
+              "required": ["title", "description"],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Idea"
+            }
+          },
+          "400": {
+            "description": "Invalid parameters!"
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ideas": {
+      "get": {
+        "tags": ["ideas"],
+        "summary": "Get list of all ideas",
+        "description": "A get request to view all ideas",
+        "operationId": "getAllIdeas",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Idea"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/view/{id}": {
+      "get": {
+        "tags": ["ideas"],
+        "summary": "Find idea by id",
+        "description": "a get request to view an idea by using the id.",
+        "operationId": "viewIdeaById",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id to search an idea",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Idea"
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid parameters or object not found."
+          }
+        }
+      }
+    },
+    "/update": {
+      "put": {
+        "tags": ["ideas"],
+        "summary": "update an exsiting idea ",
+        "description": "a put request to update an exsisting idea by using the id.",
+        "operationId": "updateIdea",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Idea",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "required": ["id", "title", "description"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Idea updated."
+          },
+          "404": {
+            "description": "Invalid parameters or object not found."
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "tags": ["ideas"],
+        "summary": "Delete idea",
+        "description": "Delete request to remove an idea.",
+        "operationId": "deleteIdea",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the idea that needs to be deleted",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Idea deleted."
+          },
+          "404": {
+            "description": "Idea not found."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Idea": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
