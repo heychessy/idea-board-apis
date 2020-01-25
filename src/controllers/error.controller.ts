@@ -25,7 +25,13 @@ export class ErrorController {
     next: NextFunction
   ) {
     if (!err.statusCode) err.statusCode = 500;
-    res.status(err.statusCode).send(err.message);
+    res
+      .status(err.statusCode)
+      .json({
+        status: false,
+        statusCode: err.statusCode,
+        message: err.message
+      });
   }
 }
 

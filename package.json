@@ -4,7 +4,6 @@
   "description": "idea board app, made using express, mongoose, swagger, typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/server.js"

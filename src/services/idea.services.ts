@@ -9,9 +9,9 @@ export class IdeaService {
   }
 
   public getAllIdeas(req: Request, res: Response, next: NextFunction) {
-    Idea.find({}, (err: Error, idea: MongooseDocument) => {
+    Idea.find({}, (err: Error, ideas: MongooseDocument) => {
       if (err) return next(new ErrorHandler(400, err.message));
-      res.status(200).json(idea);
+      res.status(200).json({ success: true, statusCode: 200, ideas: ideas });
     });
   }
   public createIdea(req: Request, res: Response, next: NextFunction) {
@@ -22,7 +22,8 @@ export class IdeaService {
     new Idea({ title: title, description: description }).save(
       (err: Error, idea: MongooseDocument) => {
         if (err) next(new ErrorHandler(400, err.message));
-        else res.status(201).json(idea);
+        else
+          res.status(201).json({ success: true, statusCode: 201, idea: idea });
       }
     );
   }
@@ -32,8 +33,9 @@ export class IdeaService {
       return next(new ErrorHandler(400, "Invalid parameters!"));
     const { id } = req.params;
     Idea.findById(id, (err: Error, idea: MongooseDocument) => {
-      if (err) return next(new ErrorHandler(404, err.message));
-      if (idea) res.status(200).json(idea);
+      if (err) return next(new ErrorHandler(400, err.message));
+      if (idea)
+        res.status(200).json({ success: true, statusCode: 200, idea: idea });
       else next(new ErrorHandler(404, "Idea not found."));
     });
   }
@@ -46,7 +48,7 @@ export class IdeaService {
       if (err) return next(new ErrorHandler(404, err.message));
       if (deleted) {
         const msg = "Idea deleted!";
-        res.status(200).send(msg);
+        res.status(200).json({ success: true, statusCode: 200, message: msg });
       } else next(new ErrorHandler(404, "Idea not found."));
     });
   }
@@ -63,7 +65,9 @@ export class IdeaService {
         if (err) return next(new ErrorHandler(400, err.message));
         if (idea) {
           const msg = "Idea updated!";
-          res.status(200).send(msg);
+          res
+            .status(200)
+            .json({ success: true, statusCode: 200, message: msg });
         } else next(new ErrorHandler(404, "Idea not found."));
       }
     );
