@@ -4,6 +4,11 @@
 - View existing ideas or update/ delete them.
 - Built using Typescript,Express, OpenSwagger, MongoDB.
 
+### Version 1.1
+
+- Added- Hemlet, Compression
+- Logging - Winston, Morgan
+
 ### Set up
 
 Requires [Node.js](https://nodejs.org/) v10+ to run.
