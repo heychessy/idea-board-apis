@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { IdeaService } from "../services/idea.services";
-import { IdeaValidators } from "../validators/idea.validors";
+import { IdeaValidators } from "../validators/idea.validators";
+
 export class IdeaController {
   private ideaService: IdeaService;
   private ideaValidator: IdeaValidators;

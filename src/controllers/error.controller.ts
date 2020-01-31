@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response, Router } from "express";
+import { logger } from "../config/winston";
 
 export class ErrorController {
   public router: Router;
@@ -25,13 +26,15 @@ export class ErrorController {
     next: NextFunction
   ) {
     if (!err.statusCode) err.statusCode = 500;
-    res
-      .status(err.statusCode)
-      .json({
-        status: false,
-        statusCode: err.statusCode,
-        message: err.message
-      });
+    logger.error(
+      `${err.statusCode} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`
+    );
+
+    res.status(err.statusCode).json({
+      status: false,
+      statusCode: err.statusCode,
+      message: err.message
+    });
   }
 }
 

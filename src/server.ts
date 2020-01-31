@@ -1,3 +1,4 @@
 import app from "./app";
 import { PORT } from "./config/config";
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+import { logger } from "./config/winston";
+app.listen(PORT, () => logger.info(`Listening on port ${PORT}`));

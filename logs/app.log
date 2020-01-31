@@ -1,0 +1,18 @@
+{"message":"::1 - - [28/Jan/2020:16:57:58 +0000] \"GET /ideas HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
+{"message":"Mongoose default connection is open.","level":"error"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"Listening on port 8001","level":"info"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"Listening on port 8001","level":"info"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:23:32 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}
+{"message":"Listening on port 8001","level":"info"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:24:30 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:24:37 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:24:38 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:24:39 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}
+{"message":"Listening on port 8001","level":"info"}
+{"message":"Mongoose default connection is open.","level":"info"}
+{"message":"::1 - - [31/Jan/2020:07:25:10 +0000] \"GET /ideas/ideas HTTP/1.1\" 200 548 \"-\" \"PostmanRuntime/7.4.0\"\n","level":"info"}

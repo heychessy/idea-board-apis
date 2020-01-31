@@ -14,7 +14,6 @@ export class IdeaValidators {
       .isString()
       .notEmpty()
   ];
-
   createIdeaValidators = () => [
     check("title")
       .exists()
